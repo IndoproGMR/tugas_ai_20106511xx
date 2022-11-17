@@ -1,14 +1,16 @@
 <?php
-$x = "ada";
-
 function hitung($x, $y)
 {
-    return ($x + $y);
+    // rumus ....
+
+
+
+    return ($x + $y
+        // int out
+    );
 }
 
-echo "test";
-// echo $_POST["layer"];
-// echo $_POST["jenis_mobil"];
-
-// echo $_GET["layer"];
-// echo $_GET["jenis_mobil"];
+function br()
+{
+    echo "<br>";
+}
