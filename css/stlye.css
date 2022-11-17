@@ -1,0 +1,43 @@
+body {
+  background: #efefef;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  background-color: #4b4b4b;
+  height: 400px;
+  width: 400px;
+  border-radius: 44px;
+}
+
+.jenis_layar {
+  width: 30px;
+}
+.div-btn {
+  position: relative;
+  bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.btn {
+  background: linear-gradient(92.8deg, #8f00ff 0%, #ff00b8 100%);
+  border-radius: 8px !important;
+  border: 1px solid #000000 !important;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white !important;
+}
+select {
+  width: calc(100% - 40px) !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+label {
+  margin-top: 20px;
+  margin-left: 40px;
+  color: #fff;
+}
