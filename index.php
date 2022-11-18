@@ -58,8 +58,7 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 
 
       if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
-        echo "test";
-        echo hitung(
+        hitung(
           $_POST["layer"],
           $_POST["jenis_mobil"]
         );
