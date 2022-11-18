@@ -57,15 +57,26 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 
 
 
-      if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
-        // hitung(
-        //   $_POST["layer"],
-        //   $_POST["jenis_mobil"]
-        // );
-        echo
-        mobil_kecil($_POST["jenis_mobil"]);
-        mobil_sedang($_POST["jenis_mobil"]);
-        mobil_besar($_POST["jenis_mobil"]);
+      // if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
+      if ($_POST["layer"] != "0" || $_POST["jenis_mobil"] != "0") {
+        echo "jenis_mobil: ";
+        echo hitung(
+          $_POST["layer"],
+          $_POST["jenis_mobil"]
+        );
+        br();
+
+        echo "mobil kecil: ";
+        echo mobil_kecil($_POST["jenis_mobil"]);
+        br();
+
+        echo "mobil sedang: ";
+        echo mobil_sedang($_POST["jenis_mobil"]);
+        br();
+
+        echo "mobil besar: ";
+        echo mobil_besar($_POST["jenis_mobil"]);
+        br();
       } else {
         echo "0";
       }
