@@ -12,6 +12,9 @@ function hitung($ulayer, $umobil)
     $layer_sedang = layer_sedang($ulayer);
     $layer_banyak = layer_banyak($ulayer);
 
+
+
+    // gagal
     if ($mobil_kecil > $mobil_sedang) {
         // # code...
         $text = "mobil Kecil";

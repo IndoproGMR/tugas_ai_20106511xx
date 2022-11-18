@@ -58,10 +58,14 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 
 
       if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
-        hitung(
-          $_POST["layer"],
-          $_POST["jenis_mobil"]
-        );
+        // hitung(
+        //   $_POST["layer"],
+        //   $_POST["jenis_mobil"]
+        // );
+        echo
+        mobil_kecil($_POST["jenis_mobil"]);
+        mobil_sedang($_POST["jenis_mobil"]);
+        mobil_besar($_POST["jenis_mobil"]);
       } else {
         echo "0";
       }
