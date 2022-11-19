@@ -16,49 +16,39 @@ function hitung($ulayer, $umobil)
 
 
     if ($mobil_kecil > $mobil_sedang) {
-        $text = "mobil_kecil";
+        $text_mobil = "mobil_kecil";
     } elseif ($mobil_sedang > $mobil_besar) {
-        $text = "mobil_sedang";
+        $text_mobil = "mobil_sedang";
     } elseif ($mobil_besar > $mobil_sedang) {
-        $text = "mobil_besar";
+        $text_mobil = "mobil_besar";
     } else {
-        $text = "crash";
+        $text_mobil = "crash";
     }
 
-    return ($text);
+
+    if ($layer_sedikit > $layer_sedang) {
+        $text_layer = "Layer sedikit";
+    } elseif ($layer_sedang > $layer_banyak) {
+        $text_layer = "Layer sedang";
+    } elseif ($layer_banyak > $layer_sedang) {
+        $text_layer = "Layer banyak";
+    } else {
+        $text_layer = "crash";
+    }
 
 
-    // gagal
-    // if ($mobil_kecil > $mobil_sedang) {
-    //     // # code...
-    //     $text = "mobil Kecil";
-    //     // $text = $mobil_kecil;
-    // } elseif ($mobil_sedang > $mobil_kecil) {
-    //     $text = "mobil sedang";
-    // } elseif ($mobil_sedang > $mobil_besar) {
-    //     $text = "mobil sedang";
-    //     // $text = $mobil_sedang;
-    // } elseif ($mobil_besar > $mobil_sedang) {
-    //     $text = "mobil besar";
-    //     // $text = $mobil_besar;
-    // } else {
-    //     $text = "crash";
-    //     // $text = "mobil besar" + 
-    //     // $text = $mobil_besar;
-    // }
-    // echo $text;
+    echo "Jenis Mobil: " . $text_mobil;
+    br();
+    echo "Jenis Layer: " . $text_layer;
 
-    // return ($mobil_kecil);
+
+    // return ($text);
 }
 
-function br()
-{
-    echo "<br>";
-}
 
 
 // Mobil
-
+// ==========================================
 function mobil_kecil($umobil)
 {
     // mobil kecil
@@ -74,7 +64,7 @@ function mobil_kecil($umobil)
 
 function mobil_sedang($umobil)
 {
-    // mobil kecil
+    // mobil sedang
     if ($umobil <= 14) {
         $mobil_k = 0;
     } elseif (14 <= $umobil && $umobil <= 16) {
@@ -90,7 +80,7 @@ function mobil_sedang($umobil)
 function mobil_besar($umobil)
 {
     $mobil_k = $umobil;
-    // mobil kecil
+    // mobil besar
     if ($umobil <= 15) {
         $mobil_k = 0;
     } elseif (15 <= $umobil && $umobil <= 18) {
@@ -100,26 +90,15 @@ function mobil_besar($umobil)
     }
     return ($mobil_k);
 }
+// ==========================================
 
-
-// function mobil_besar($umobil)
-// {
-//     //mobil besar
-//     if ($umobil >= 15) {
-//         $mobil_b = 0;
-//     } elseif (15 <= $umobil && $umobil <= 18) {
-//         $mobil_b = ($umobil - 15) / (18 - 15);
-//     } elseif ($umobil >= 18) {
-//         $mobil_b = 1;
-//     }
-//     return ($mobil_b);
-// }
 
 
 // layer
+// ==========================================
 function layer_sedikit($ulayer)
 {
-    // layer kecil
+    // layer sedikit
     if ($ulayer <= 2) {
         $layer = 1;
     } elseif (2 <= $ulayer && $ulayer <= 3) {
@@ -132,10 +111,10 @@ function layer_sedikit($ulayer)
 
 function layer_sedang($ulayer)
 {
-    // mobil sedang
-    if ($ulayer >= 2) {
+    // layer sedang
+    if ($ulayer <= 2) {
         $layer = 0;
-    } elseif (2 <= $ulayer && $ulayer <= 2.5) {
+    } elseif (2 <= $ulayer && $ulayer <= 3.5) {
         $layer = ($ulayer - 2) / (3.5 - 2);
     } elseif (3.5 <= $ulayer && $ulayer <= 5) {
         $layer = (5 - $ulayer) / (5 - 3.5);
@@ -147,8 +126,8 @@ function layer_sedang($ulayer)
 
 function layer_banyak($ulayer)
 {
-    //layer besar
-    if ($ulayer >= 4) {
+    //layer banyak
+    if ($ulayer <= 4) {
         $layer = 0;
     } elseif (4 <= $ulayer && $ulayer <= 6) {
         $layer = ($ulayer - 4) / (6 - 4);
@@ -157,4 +136,45 @@ function layer_banyak($ulayer)
     }
     return ($layer);
 }
-//new
+// ==========================================
+
+// Debug
+// ==========================================
+function debug_layer($layer)
+{
+
+    echo "Layer sedikit: ";
+    echo layer_sedikit($layer);
+    br();
+
+    echo "Layer sedang: ";
+    echo layer_sedang($layer);
+    br();
+
+    echo "Layer banyak: ";
+    echo layer_banyak($layer);
+    br();
+}
+
+function debug_mobil($umobil)
+{
+
+    echo "mobil kecil: ";
+    echo mobil_kecil($umobil);
+    br();
+
+    echo "mobil sedang: ";
+    echo mobil_sedang($umobil);
+    br();
+
+    echo "mobil besar: ";
+    echo mobil_besar($umobil);
+    br();
+}
+
+
+function br()
+{
+    echo "<br>";
+}
+// ==========================================
