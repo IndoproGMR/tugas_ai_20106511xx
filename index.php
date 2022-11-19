@@ -38,9 +38,9 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       <option value="0" selected>Open this select menu</option>
       <option value="13">13 - Kecil</option>
       <option value="14">14 - Kecil</option>
-      <option value="15">15 - sedang</option>
+      <option value="15">15 - kecil</option>
       <option value="16">16 - sedang</option>
-      <option value="17">17 - sedang</option>
+      <option value="17">17 - Besar</option>
       <option value="18">18 - besar</option>
       <option value="19">19 - besar</option>
       <option value="20">20 - besar</option>
@@ -57,8 +57,8 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 
 
 
-      // if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
-      if ($_POST["layer"] != "0" || $_POST["jenis_mobil"] != "0") {
+      if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
+        // if ($_POST["layer"] != "0" || $_POST["jenis_mobil"] != "0") {
         echo "jenis_mobil: ";
         hitung(
           $_POST["layer"],
@@ -66,8 +66,8 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
         );
         br();
 
-        debug_mobil($_POST["jenis_mobil"]);
-        debug_layer($_POST["layer"]);
+        // debug_mobil($_POST["jenis_mobil"]);
+        // debug_layer($_POST["layer"]);
       } else {
         echo "0";
       }

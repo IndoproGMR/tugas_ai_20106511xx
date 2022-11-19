@@ -27,11 +27,11 @@ function hitung($ulayer, $umobil)
 
 
     if ($layer_sedikit > $layer_sedang) {
-        $text_layer = "Layer sedikit";
+        $text_layer = "Layer_sedikit";
     } elseif ($layer_sedang > $layer_banyak) {
-        $text_layer = "Layer sedang";
+        $text_layer = "Layer_sedang";
     } elseif ($layer_banyak > $layer_sedang) {
-        $text_layer = "Layer banyak";
+        $text_layer = "Layer_banyak";
     } else {
         $text_layer = "crash";
     }
@@ -41,6 +41,71 @@ function hitung($ulayer, $umobil)
     br();
     echo "Jenis Layer: " . $text_layer;
 
+    // Logika Harga
+
+    // mobil_kecil R1~R3
+    // R1
+    $a1 = min($mobil_kecil, $layer_sedikit);
+    $z1 = 10 - ($a1 * (10 - 2));
+
+    // R2
+    $a2 = min($mobil_kecil, $layer_sedang);
+    $z2 = 10 - ($a2 * (10 - 2));
+
+    // R3
+    $a3 = min($mobil_kecil, $layer_banyak);
+    $z3 = 10 - ($a3 * (10 - 2));
+
+
+    // mobil_sedang R4~R6
+    // R4
+    $a4 = min($mobil_sedang, $layer_sedikit);
+    $z4 = 10 - ($a4 * (10 - 2));
+
+    // R5
+    $a5 = min($mobil_sedang, $layer_sedang);
+    // $z5 = 10 - ($a5 * (10 - 2));
+    // $z5 = 3.5;
+    $z5 = $a5;
+
+    // R6
+    $a6 = min($mobil_sedang, $layer_banyak);
+    $z6 = 2 + ($a6 * (10 - 2));
+
+
+
+
+    // mobil_besar R7~R9
+    // R7
+    $a7 = min($mobil_besar, $layer_sedikit);
+    $z7 = 2 + ($a7 * (10 - 2));
+
+    // R8
+    $a8 = min($mobil_besar, $layer_sedang);
+    $z8 = 2 + ($a8 * (10 - 2));
+
+    // R9
+    $a9 = min($mobil_besar, $layer_banyak);
+    $z9 = 2 + ($a9 * (10 - 2));
+
+    $zp = ($a1 * $z1 +
+        $a2 * $z2 +
+        $a3 * $z3 +
+        $a4 * $z4 +
+        $a5 * $z5 +
+        $a6 * $z6 +
+        $a7 * $z7 +
+        $a8 * $z8 +
+        $a9 * $z9);
+
+    $zd = ($a1 + $a2 + $a3 + $a4 + $a5 + $a6 + $a7 + $a8 + $a9);
+    br();
+    echo $zp;
+    br();
+    echo $zd;
+
+    br();
+    echo "Hasil z = " . floatval($zp / $zd) . "\n";
 
     // return ($text);
 }
