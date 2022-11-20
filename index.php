@@ -18,6 +18,8 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 <body>
   <h1>Perhitungan Harga Coating</h1>
 
+
+  <!-- form-start -->
   <form action="" method="POST" class="position-absolute top-50 start-50 translate-middle">
     <label for="layer" class="fs-4 fw-bold">Tebal Layer</label>
     <select name="layer" id="layer" class="form-select" aria-label="Default select example">
@@ -46,6 +48,23 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       <option value="20">20 - besar</option>
     </select>
 
+    <!-- 
+    <label for="Uang" class="fs-4 fw-bold">Uang</label>
+    <select name="Uang" id="Uang" class="form-select" aria-label="Default select example">
+      <option value="0" selected>Open this select menu</option>
+      <option value="1">1 - sedikit</option>
+      <option value="2">2 - sedikit</option>
+      <option value="3">3 - sedang</option>
+      <option value="4">4 - sedang</option>
+      <option value="5">5 - banyak</option>
+      <option value="6">6 - banyak</option>
+      <option value="7">7 - banyak</option>
+      <option value="8">8 - banyak</option>
+      <option value="9">9 - banyak</option>
+      <option value="10">10 - banyak</option>
+    </select> -->
+
+
     <div class="hasil">
       <?php
       echo "Jenis Mobil: ";
@@ -54,22 +73,21 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       echo "Layer: ";
       echo $_POST["layer"];
       br();
+      // echo "Uang: ";
+      // echo $_POST["Uang"];
+      // br();
 
 
 
       if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
         // if ($_POST["layer"] != "0" || $_POST["jenis_mobil"] != "0") {
-        echo "jenis_mobil: ";
         hitung(
           $_POST["layer"],
           $_POST["jenis_mobil"]
         );
         br();
-
-        // debug_mobil($_POST["jenis_mobil"]);
-        // debug_layer($_POST["layer"]);
       } else {
-        echo "0";
+        echo "";
       }
       ?>
     </div>
@@ -80,8 +98,39 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       </div>
     </div>
   </form>
+  <!-- form-end -->
 
-  <!-- asdw -->
+
+  <!-- Debug-start -->
+  <!--
+  <div class="debug position-absolute top-50 translate-middle">
+    <div class="hasil">
+      <?php
+      echo "Jenis Mobil: ";
+      echo $_POST["jenis_mobil"];
+      br();
+      echo "Layer: ";
+      echo $_POST["layer"];
+      br();
+      echo "Uang: ";
+      echo $_POST["Uang"];
+      br();
+
+      br();
+      debug_mobil($_POST["jenis_mobil"]);
+      br();
+      debug_layer($_POST["layer"]);
+      br();
+      debug_uang($_POST["Uang"]);
+      br();
+
+      ?>
+    </div>
+  </div>
+-->
+  <!-- Debug-end -->
+
+  <!-- bootstarp -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

@@ -13,6 +13,7 @@ function hitung($ulayer, $umobil)
     $layer_sedang = layer_sedang($ulayer);
     $layer_banyak = layer_banyak($ulayer);
 
+    // $uang_murah = murah($uuang);
 
 
     if ($mobil_kecil > $mobil_sedang) {
@@ -37,56 +38,67 @@ function hitung($ulayer, $umobil)
     }
 
 
-    echo "Jenis Mobil: " . $text_mobil;
-    br();
-    echo "Jenis Layer: " . $text_layer;
+    // echo "Jenis Mobil: " . $text_mobil;
+    // br();
+    // echo "Jenis Layer: " . $text_layer;
+    // br();
 
     // Logika Harga
+
+    $zmax = 10; // harga maximum
+    $zmin = 2; // harga minimum
 
     // mobil_kecil R1~R3
     // R1
     $a1 = min($mobil_kecil, $layer_sedikit);
-    $z1 = 10 - ($a1 * (10 - 2));
+    $z1 = $zmax - ($a1 * ($zmax - $zmin));
+    // echo $z1 . br();
 
     // R2
     $a2 = min($mobil_kecil, $layer_sedang);
-    $z2 = 10 - ($a2 * (10 - 2));
+    $z2 = $zmax - ($a2 * ($zmax - $zmin));
+    // echo $z2 . br();
 
     // R3
     $a3 = min($mobil_kecil, $layer_banyak);
-    $z3 = 10 - ($a3 * (10 - 2));
-
+    $z3 = $zmax - ($a3 * ($zmax - $zmin));
+    // echo $z3 . br();
 
     // mobil_sedang R4~R6
     // R4
     $a4 = min($mobil_sedang, $layer_sedikit);
-    $z4 = 10 - ($a4 * (10 - 2));
+    $z4 = $zmax - ($a4 * ($zmax - $zmin));
+    // echo $z4 . br();
 
     // R5
     $a5 = min($mobil_sedang, $layer_sedang);
     // $z5 = 10 - ($a5 * (10 - 2));
-    // $z5 = 3.5;
-    $z5 = $a5;
+    $z5 = 3.5; // nilai tengah pada layer
+    // $z5 = $a5;
+    // echo $z5 . br();
 
     // R6
     $a6 = min($mobil_sedang, $layer_banyak);
-    $z6 = 2 + ($a6 * (10 - 2));
-
+    $z6 = $zmin + ($a6 * ($zmax - $zmin));
+    // echo $z6 . br();
 
 
 
     // mobil_besar R7~R9
     // R7
     $a7 = min($mobil_besar, $layer_sedikit);
-    $z7 = 2 + ($a7 * (10 - 2));
+    $z7 = $zmin + ($a7 * ($zmax - $zmin));
+    // echo $z7 . br();
 
     // R8
     $a8 = min($mobil_besar, $layer_sedang);
-    $z8 = 2 + ($a8 * (10 - 2));
+    $z8 = $zmin + ($a8 * ($zmax - $zmin));
+    // echo $z8 . br();
 
     // R9
     $a9 = min($mobil_besar, $layer_banyak);
-    $z9 = 2 + ($a9 * (10 - 2));
+    $z9 = $zmin + ($a9 * ($zmax - $zmin));
+    // echo $z9 . br();
 
     $zp = ($a1 * $z1 +
         $a2 * $z2 +
@@ -96,16 +108,22 @@ function hitung($ulayer, $umobil)
         $a6 * $z6 +
         $a7 * $z7 +
         $a8 * $z8 +
-        $a9 * $z9);
+        $a9 * $z9
+    );
 
     $zd = ($a1 + $a2 + $a3 + $a4 + $a5 + $a6 + $a7 + $a8 + $a9);
-    br();
-    echo $zp;
-    br();
-    echo $zd;
+    // br();
+    // echo $zp;
+    // br();
+    // echo $zd;
+    $zz = $zp / $zd;
+    // echo "Hasil z = " . floatval($zz) . "\n";
+    $zz =  number_format($zz, 2, '.', ',');
+    $zz = $zz * 1000000;
+    echo "harga Coating: Rp." . number_format($zz, 2, '.', ',');
 
-    br();
-    echo "Hasil z = " . floatval($zp / $zd) . "\n";
+    // br();
+    // debug_uang($zz);
 
     // return ($text);
 }
@@ -150,7 +168,7 @@ function mobil_besar($umobil)
         $mobil_k = 0;
     } elseif (15 <= $umobil && $umobil <= 18) {
         $mobil_k = ($umobil - 15) / (18 - 15);
-    } elseif ($umobil >= 18) {
+    } elseif ($umobil >= 20) {
         $mobil_k = 1;
     }
     return ($mobil_k);
@@ -194,12 +212,59 @@ function layer_banyak($ulayer)
     //layer banyak
     if ($ulayer <= 4) {
         $layer = 0;
-    } elseif (4 <= $ulayer && $ulayer <= 6) {
-        $layer = ($ulayer - 4) / (6 - 4);
-    } elseif ($ulayer >= 6) {
+    } elseif (4 <= $ulayer && $ulayer <= 5) {
+        $layer = ($ulayer - 4) / (5 - 4);
+    } elseif ($ulayer >= 5) {
         $layer = 1;
     }
     return ($layer);
+}
+// ==========================================
+
+
+
+// Uang
+// ==========================================
+function murah($uuang)
+{
+    // mobil kecil
+    if ($uuang <= 4) {
+        $mobil_k = 1;
+    } elseif (5 <= $uuang && $uuang <= 5) {
+        $mobil_k = (5 - $uuang) / (5 - 1);
+    } elseif ($uuang >= 5) {
+        $mobil_k = 0;
+    }
+    return ($mobil_k);
+}
+
+function sedang($uuang)
+{
+    // mobil sedang
+    if ($uuang <= 4) {
+        $mobil_k = 0;
+    } elseif (4 <= $uuang && $uuang <= 6) {
+        $mobil_k = ($uuang - 4) / (6 - 4);
+    } elseif (6 <= $uuang && $uuang <= 9) {
+        $mobil_k = (9 - $uuang) / (9 - 6);
+    } elseif ($uuang >= 9) {
+        $mobil_k = 0;
+    }
+    return ($mobil_k);
+}
+
+function mahal($uuang)
+{
+    $mobil_k = $uuang;
+    // mobil besar
+    if ($uuang <= 8) {
+        $mobil_k = 0;
+    } elseif (8 <= $uuang && $uuang <= 10) {
+        $mobil_k = ($uuang - 4) / (10 - 4);
+    } elseif ($uuang >= 10) {
+        $mobil_k = 1;
+    }
+    return ($mobil_k);
 }
 // ==========================================
 
@@ -207,7 +272,6 @@ function layer_banyak($ulayer)
 // ==========================================
 function debug_layer($layer)
 {
-
     echo "Layer sedikit: ";
     echo layer_sedikit($layer);
     br();
@@ -223,7 +287,6 @@ function debug_layer($layer)
 
 function debug_mobil($umobil)
 {
-
     echo "mobil kecil: ";
     echo mobil_kecil($umobil);
     br();
@@ -237,6 +300,21 @@ function debug_mobil($umobil)
     br();
 }
 
+
+function debug_uang($uuang)
+{
+    echo "harga murah: ";
+    echo murah($uuang);
+    br();
+
+    echo "harga sedang: ";
+    echo sedang($uuang);
+    br();
+
+    echo "harga mahal: ";
+    echo mahal($uuang);
+    br();
+}
 
 function br()
 {

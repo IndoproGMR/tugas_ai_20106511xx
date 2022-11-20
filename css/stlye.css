@@ -7,8 +7,9 @@ h1 {
 }
 
 form {
+  /* tinggi tabel*/
+  height: 400px;
   background-color: #4b4b4b;
-  height: 500px;
   width: 400px;
   border-radius: 44px;
   box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.5);
@@ -60,14 +61,26 @@ h1 {
 }
 
 .hasil {
+  height: 100px; /* tinggi tabel*/
   margin-top: 20px;
   margin-left: 20px;
   background-color: #fff;
-  height: 200px;
   width: calc(100% - 40px);
   padding-top: 2px;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 4px !important;
   border: 1px solid #000000 !important;
+}
+
+.debug {
+  left: 150px;
+  background-color: #4b4b4b;
+  height: 500px;
+  width: 250px;
+}
+
+.debug > .hasil {
+  /* background-color: #8f00ff; */
+  height: 460px;
 }
