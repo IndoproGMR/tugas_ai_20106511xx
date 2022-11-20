@@ -1,6 +1,6 @@
 ## NIM_NAMA
 
-- 2010651170_Achmand Naji
+- 2010651170_Achmad Naji
 - 2010651142_Adjie Krishna Wicaksono
 - 2010651143_Nur Rofiq Hidayat
 - 2010651135_Dimas Erisma Faishol
