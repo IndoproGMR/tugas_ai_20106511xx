@@ -1,6 +1,4 @@
-<?php
-include("../program_fuzzy/perhitungan/perhitungan.php");
-?>
+<?php include("../program_fuzzy/perhitungan/perhitungan.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +10,7 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Algoritam fuzzy</title>
 </head>
 
 <body>
@@ -24,13 +22,13 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
     <label for="layer" class="fs-4 fw-bold">Tebal Layer</label>
     <select name="layer" id="layer" class="form-select" aria-label="Default select example">
       <option value="0" selected>Open this select menu</option>
-      <option value="1">1 - sedikit</option>
-      <option value="2">2 - sedikit</option>
-      <option value="3">3 - sedang</option>
-      <option value="4">4 - sedang</option>
-      <option value="5">5 - banyak</option>
-      <option value="6">6 - banyak</option>
-      <option value="7">7 - banyak</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
     </select>
 
 
@@ -38,32 +36,39 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
     <label for="jenis_mobil" class="fs-4 fw-bold">Jenis Mobil</label>
     <select name="jenis_mobil" id="jenis_mobil" class="form-select" aria-label="Default select example">
       <option value="0" selected>Open this select menu</option>
-      <option value="13">13 - Kecil</option>
-      <option value="14">14 - Kecil</option>
-      <option value="15">15 - kecil</option>
-      <option value="16">16 - sedang</option>
-      <option value="17">17 - Besar</option>
-      <option value="18">18 - besar</option>
-      <option value="19">19 - besar</option>
-      <option value="20">20 - besar</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
     </select>
 
-    <!-- 
-    <label for="Uang" class="fs-4 fw-bold">Uang</label>
-    <select name="Uang" id="Uang" class="form-select" aria-label="Default select example">
+    <?php
+    if (isset($_GET["debug"])) {
+      echo ('
+      <label for="Uang" class="fs-4 fw-bold">Uang</label>
+      <select name="Uang" id="Uang" class="form-select" aria-label="Default select example">
       <option value="0" selected>Open this select menu</option>
-      <option value="1">1 - sedikit</option>
-      <option value="2">2 - sedikit</option>
-      <option value="3">3 - sedang</option>
-      <option value="4">4 - sedang</option>
-      <option value="5">5 - banyak</option>
-      <option value="6">6 - banyak</option>
-      <option value="7">7 - banyak</option>
-      <option value="8">8 - banyak</option>
-      <option value="9">9 - banyak</option>
-      <option value="10">10 - banyak</option>
-    </select> -->
-    <!-- ubah tinggi .hasil dan form -->
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      </select>
+      ');
+    }
+    ?>
 
 
     <div class="hasil">
@@ -83,8 +88,7 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
 
 
 
-      if ($_POST["layer"] != "0" && $_POST["jenis_mobil"] != "0") {
-        // if ($_POST["layer"] != "0" || $_POST["jenis_mobil"] != "0") {
+      if (isset($_POST["layer"]) != "0" && isset($_POST["jenis_mobil"]) != "0") {
         hitung(
           $_POST["layer"],
           $_POST["jenis_mobil"]
@@ -105,33 +109,35 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
   <!-- form-end -->
 
 
+
   <!-- Debug-start -->
-  <!--
-  <div class="debug position-absolute top-50 translate-middle">
-    <div class="hasil">
-      <?php
-      echo "Jenis Mobil: ";
-      echo $_POST["jenis_mobil"];
-      br();
-      echo "Layer: ";
-      echo $_POST["layer"];
-      br();
-      echo "Uang: ";
-      echo $_POST["Uang"];
-      br();
+  <!-- http://localhost:3000/index.php?debug -->
+  <?php
+  if (isset($_GET["debug"])) {
+    echo '<div class="debug position-absolute top-50 translate-middle">';
+    echo '<div class="hasil">';
+    echo '<h4>Debug</h4>';
+    echo "Jenis Mobil: ";
+    echo $_POST["jenis_mobil"];
+    br();
+    echo "Layer: ";
+    echo $_POST["layer"];
+    br();
+    echo "Uang: ";
+    echo $_POST["Uang"];
+    br();
 
-      br();
-      debug_mobil($_POST["jenis_mobil"]);
-      br();
-      debug_layer($_POST["layer"]);
-      br();
-      debug_uang($_POST["Uang"]);
-      br();
+    br();
+    debug_mobil($_POST["jenis_mobil"]);
+    br();
+    debug_layer($_POST["layer"]);
+    br();
+    debug_uang($_POST["Uang"]);
+    br();
 
-      ?>
-    </div>
-  </div>
--->
+    echo "</div> </div>";
+  }
+  ?>
   <!-- Debug-end -->
 
   <!-- bootstarp -->

@@ -8,7 +8,8 @@ h1 {
 
 form {
   /* tinggi tabel*/
-  height: 400px;
+  /* height: 400px; */
+  padding-bottom: 80px;
   background-color: #4b4b4b;
   width: 400px;
   border-radius: 44px;
@@ -76,11 +77,15 @@ h1 {
 .debug {
   left: 150px;
   background-color: #4b4b4b;
-  height: 500px;
+  height: 560px;
   width: 250px;
+  border-radius: 6px !important;
+  border: 1px solid #000000 !important;
 }
 
 .debug > .hasil {
+  border-radius: 6px !important;
+
   /* background-color: #8f00ff; */
-  height: 460px;
+  height: 520px;
 }
