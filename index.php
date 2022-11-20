@@ -63,6 +63,7 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       <option value="9">9 - banyak</option>
       <option value="10">10 - banyak</option>
     </select> -->
+    <!-- ubah tinggi .hasil dan form -->
 
 
     <div class="hasil">
@@ -73,9 +74,12 @@ include("../program_fuzzy/perhitungan/perhitungan.php");
       echo "Layer: ";
       echo $_POST["layer"];
       br();
+
+      // ubah tinggi .hasil dan form
       // echo "Uang: ";
       // echo $_POST["Uang"];
       // br();
+
 
 
 
