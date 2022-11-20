@@ -1,3 +1,15 @@
-tutorial nya
+## NIM_NAMA
 
-https://github.com/IndoproGMR/tes_pull-push_req
+- 2010651170_Achmand Naji
+- 2010651142_Adjie Krishna Wicaksono
+- 2010651143_Nur Rofiq Hidayat
+- 2010651135_Dimas Erisma Faishol
+- 2010651133_Re Rahmat Trisandi
+
+---
+
+### [Figma Desain](https://www.figma.com/file/haX1Ol6IdQn4rTor4lVl03/Untitled?node-id=0%3A1&t=jf88yHlWLlsJEmN5-1)
+
+### [Tutorial Setting Github](https://github.com/IndoproGMR/tes_pull-push_req)
+
+---
