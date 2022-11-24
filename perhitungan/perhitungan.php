@@ -11,6 +11,32 @@ function hitung($ulayer, $umobil)
     $layer_banyak = layer_banyak($ulayer);
 
 
+
+
+    // gagal
+    // ======================================
+
+    // aljabar liner
+    // batas bawah ax + by = harga murah
+    // 14x + 2y = 2000000
+    // batas atas ax + by = harga mahal
+    // 19x + 7y = 10000000
+
+    // $x = -6000000 / 71;
+    // $y = 120600000 / 71;
+
+    // // $x = -100000;
+    // // $y = 1700000;
+    // $testx = $umobil * $x;
+    // $testy = $ulayer * $y;
+
+    // $testharga = $testx + $testy;
+
+    // echo "Harga Coating: Rp." . number_format($testharga, 2, '.', ',');
+    // br();
+
+    // ======================================
+
     // Logika Harga
     $zmax = 10; // harga maximum
     $zmin = 2; // harga minimum
@@ -82,7 +108,7 @@ function hitung($ulayer, $umobil)
     // mengihitung biaya dalam satuan juta
     $zz =  number_format($zz, 2, '.', ',');
     $zz = $zz * 1000000;
-    echo "Harga Coating: Rp." . number_format($zz, 2, '.', ',');
+    echo spanbold("Harga Coating: ") . "Rp." . number_format($zz, 2, '.', ',');
 }
 
 
@@ -242,19 +268,16 @@ function debug_layer($ulayer)
         $text_layer = "crash";
     }
 
-    echo "Jenis Layer: " . $text_layer;
+    echo spanbold("Jenis Layer: ") . $text_layer;
     br();
 
-    echo "Layer sedikit: ";
-    echo $layer_sedikit;
+    echo spanbold("Layer sedikit: ") . $layer_sedikit;
     br();
 
-    echo "Layer sedang: ";
-    echo $layer_sedang;
+    echo spanbold("Layer sedang: ") . $layer_sedang;
     br();
 
-    echo "Layer banyak: ";
-    echo  $layer_banyak;
+    echo spanbold("Layer banyak: ") . $layer_banyak;
     br();
 }
 
@@ -274,39 +297,56 @@ function debug_mobil($umobil)
         $text_mobil = "crash";
     }
 
-    echo "Jenis Mobil: " . $text_mobil;
+    echo spanbold("Jenis Mobil: ") . $text_mobil;
     br();
 
-    echo "mobil kecil: ";
-    echo $mobil_kecil;
+    echo spanbold("mobil kecil: ") . $mobil_kecil;
     br();
 
-    echo "mobil sedang: ";
-    echo $mobil_sedang;
+    echo spanbold("mobil sedang: ") . $mobil_sedang;
     br();
 
-    echo "mobil besar: ";
-    echo $mobil_besar;
+    echo spanbold("mobil besar: ") . $mobil_besar;
     br();
 }
 
 function debug_uang($uuang)
 {
-    echo "harga murah: ";
-    echo murah($uuang);
+
+    $murah = murah($uuang);
+    $sedang = sedang($uuang);
+    $mahal = mahal($uuang);
+
+    if ($murah > $sedang) {
+        $text_uang = "Harga_murah";
+    } elseif ($sedang > $mahal) {
+        $text_uang = "Harga_sedang";
+    } elseif ($mahal > $sedang) {
+        $text_uang = "Harga_mahal";
+    } else {
+        $text_uang = "crash";
+    }
+
+    echo spanbold("Jenis Harga: ") . $text_uang;
     br();
 
-    echo "harga sedang: ";
-    echo sedang($uuang);
+    echo spanbold("harga murah: ") . $murah;
     br();
 
-    echo "harga mahal: ";
-    echo mahal($uuang);
+    echo spanbold("harga sedang: ") . $sedang;
+    br();
+
+    echo spanbold("harga mahal: ") . $mahal;
     br();
 }
 
 function br()
 {
     echo "<br>";
+}
+
+function spanbold($text)
+{
+    echo "<span class='fw-bold'>$text</span>";
 }
 // ==========================================

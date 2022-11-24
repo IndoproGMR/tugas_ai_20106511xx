@@ -20,8 +20,8 @@
   <!-- form-start -->
   <form action="" method="POST" class="position-absolute top-50 start-50 translate-middle">
     <label for="layer" class="fs-4 fw-bold">Tebal Layer</label>
-    <select name="layer" id="layer" class="form-select" aria-label="Default select example">
-      <option value="0" selected>Open this select menu</option>
+    <select name="layer" id="layer" class="form-select">
+      <option value="0" selected>Silahkan Pilih Tebal Layer</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -34,8 +34,8 @@
 
 
     <label for="jenis_mobil" class="fs-4 fw-bold">Jenis Mobil</label>
-    <select name="jenis_mobil" id="jenis_mobil" class="form-select" aria-label="Default select example">
-      <option value="0" selected>Open this select menu</option>
+    <select name="jenis_mobil" id="jenis_mobil" class="form-select">
+      <option value="0" selected>Silahkan Pilih Jenis Mobil</option>
       <option value="13">13</option>
       <option value="14">14</option>
       <option value="15">15</option>
@@ -50,8 +50,8 @@
     if (isset($_GET["debug"])) {
       echo ('
       <label for="Uang" class="fs-4 fw-bold">Uang</label>
-      <select name="Uang" id="Uang" class="form-select" aria-label="Default select example">
-      <option value="0" selected>Open this select menu</option>
+      <select name="Uang" id="Uang" class="form-select">
+      <option value="0" selected>Silahkan Pilih jumlah Uang</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -73,11 +73,9 @@
 
     <div class="hasil">
       <?php
-      echo "Jenis Mobil: ";
-      echo $_POST["jenis_mobil"];
+      echo spanbold("Jenis Mobil: ") . $_POST["jenis_mobil"];
       br();
-      echo "Layer: ";
-      echo $_POST["layer"];
+      echo spanbold("Layer: ") . $_POST["layer"];
       br();
 
       // ubah tinggi .hasil dan form
@@ -102,7 +100,9 @@
 
     <div class="fixed-bottom">
       <div class="d-grid gap-2 div-btn">
-        <button class="btn" type="submit">Hitung</button>
+        <button class="btn" type="submit">
+          <span class="fw-bold">Hitung</span>
+        </button>
       </div>
     </div>
   </form>
@@ -117,14 +117,11 @@
     echo '<div class="debug position-absolute top-50 translate-middle">';
     echo '<div class="hasil">';
     echo '<h4>Debug</h4>';
-    echo "Jenis Mobil: ";
-    echo $_POST["jenis_mobil"];
+    echo spanbold("Jenis Mobil: ") . $_POST["jenis_mobil"];
     br();
-    echo "Layer: ";
-    echo $_POST["layer"];
+    echo spanbold("Layer: ") . $_POST["layer"];
     br();
-    echo "Uang: ";
-    echo $_POST["Uang"];
+    echo spanbold("Uang: ") . $_POST["Uang"];
     br();
 
     br();
