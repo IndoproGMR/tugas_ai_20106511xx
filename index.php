@@ -10,14 +10,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Algoritam fuzzy</title>
+  <title>Algoritam Fuzzy</title>
 </head>
 
 <body>
   <h1>Perhitungan Harga Coating</h1>
 
 
-  <!-- form-start -->
+  <!-- form-start input -->
   <form action="" method="POST" class="position-absolute top-50 start-50 translate-middle">
     <label for="layer" class="fs-4 fw-bold">Tebal Layer</label>
     <select name="layer" id="layer" class="form-select">
@@ -51,26 +51,28 @@
       echo ('
       <label for="Uang" class="fs-4 fw-bold">Uang</label>
       <select name="Uang" id="Uang" class="form-select">
-      <option value="0" selected>Silahkan Pilih jumlah Uang</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
+        <option value="0" selected>Silahkan Pilih jumlah Uang</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
       </select>
       ');
     }
     ?>
+    <!-- form-mid input hasil-->
 
 
+    <!-- hasil-start defuzzyfikasi -->
     <div class="hasil">
       <?php
       echo spanbold("Jenis Mobil: ") . $_POST["jenis_mobil"];
@@ -97,6 +99,9 @@
       }
       ?>
     </div>
+    <!-- hasil-end defuzzyfikasi -->
+
+
 
     <div class="fixed-bottom">
       <div class="d-grid gap-2 div-btn">
@@ -106,11 +111,11 @@
       </div>
     </div>
   </form>
-  <!-- form-end -->
+  <!-- form-end hasil -->
 
 
 
-  <!-- Debug-start -->
+  <!-- Debug-start fuzzyfikasi -->
   <!-- http://localhost:3000/index.php?debug -->
   <?php
   if (isset($_GET["debug"])) {
@@ -122,6 +127,7 @@
     echo spanbold("Layer: ") . $_POST["layer"];
     br();
     echo spanbold("Uang: ") . $_POST["Uang"];
+    // echo spanbold("Uang: ") . $zz;
     br();
 
     br();
@@ -130,6 +136,7 @@
     debug_layer($_POST["layer"]);
     br();
     debug_uang($_POST["Uang"]);
+    // debug_uang($zz);
     br();
 
     echo "</div> </div>";

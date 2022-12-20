@@ -11,32 +11,6 @@ function hitung($ulayer, $umobil)
     $layer_banyak = layer_banyak($ulayer);
 
 
-
-
-    // gagal
-    // ======================================
-
-    // aljabar liner
-    // batas bawah ax + by = harga murah
-    // 14x + 2y = 2000000
-    // batas atas ax + by = harga mahal
-    // 19x + 7y = 10000000
-
-    // $x = -6000000 / 71;
-    // $y = 120600000 / 71;
-
-    // // $x = -100000;
-    // // $y = 1700000;
-    // $testx = $umobil * $x;
-    // $testy = $ulayer * $y;
-
-    // $testharga = $testx + $testy;
-
-    // echo "Harga Coating: Rp." . number_format($testharga, 2, '.', ',');
-    // br();
-
-    // ======================================
-
     // Logika Harga
     $zmax = 10; // harga maximum
     $zmin = 2; // harga minimum
@@ -110,11 +84,9 @@ function hitung($ulayer, $umobil)
     $zz = $zz * 1000000;
     echo spanbold("Harga Coating: ") . "Rp." . number_format($zz, 2, '.', ',');
 }
-
-
-
-// Mobil
 // ==========================================
+
+// ================ Mobil ===================
 function mobil_kecil($umobil)
 {
     // mobil kecil
@@ -157,10 +129,7 @@ function mobil_besar($umobil)
 }
 // ==========================================
 
-
-
-// layer
-// ==========================================
+// ================= layer ==================
 function layer_sedikit($ulayer)
 {
     // layer sedikit
@@ -203,10 +172,7 @@ function layer_banyak($ulayer)
 }
 // ==========================================
 
-
-
-// Uang
-// ==========================================
+// ================= uang ===================
 function murah($uuang)
 {
     // mobil kecil
@@ -250,8 +216,7 @@ function mahal($uuang)
 }
 // ==========================================
 
-// Debug
-// ==========================================
+// ================ Debug ===================
 function debug_layer($ulayer)
 {
     $layer_sedikit = layer_sedikit($ulayer);
@@ -339,7 +304,9 @@ function debug_uang($uuang)
     echo spanbold("harga mahal: ") . $mahal;
     br();
 }
+// ==========================================
 
+// ============= fungsi dekorasi ============
 function br()
 {
     echo "<br>";
